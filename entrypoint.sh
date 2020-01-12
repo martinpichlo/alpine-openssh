@@ -30,7 +30,8 @@ else
 fi
 
 # unlock root
-passwd -u
+# passwd -u
 
 # do not detach (-D), log to stderr (-e), passthrough other arguments
-exec /usr/sbin/sshd -D -e "$@"
+#exec /usr/sbin/sshd -D -e "$@"
+while :; do :; done
