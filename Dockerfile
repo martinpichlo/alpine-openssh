@@ -1,10 +1,15 @@
-FROM alpine:3.7
-ENV KEYPAIR_LOGIN=false ROOT_PASSWORD=root
+FROM alpine:latest
+###MAINTAINER Daniel Guerra <daniel.guerra69@gmail.com>
 
-ADD entrypoint.sh /
-RUN apk update && apk upgrade && apk add openssh && chmod +x /entrypoint.sh && mkdir -p /root/.ssh && rm -rf /var/cache/apk/* /tmp/*
+# add openssh and clean
+RUN apk add --update openssh \
+&& rm  -rf /tmp/* /var/cache/apk/*
+# add entrypoint script
+ADD entrypoint.sh /usr/local/bin
+#make sure we get fresh keys
+RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
 
 EXPOSE 22
-#VOLUME ["/etc/ssh"]
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["/usr/sbin/sshd","-D"]
 
