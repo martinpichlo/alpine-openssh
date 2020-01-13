@@ -16,6 +16,7 @@ Docker OpenSSH for Autossh
 	    restart: always
 	    ports:
 	      - "23:22"
+              - "24:24"
 	    volumes:
 	      - /home/martin/ssh/authorized_keys:/root/.ssh/authorized_keys
 	    environment:
