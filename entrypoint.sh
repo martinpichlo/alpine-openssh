@@ -16,6 +16,7 @@ if [ ! -f "/etc/ssh/sshd_config_org" ]; then
 	sed -i "s/#ClientAliveInterval.*/ClientAliveInterval 10/" /etc/ssh/sshd_config
 	sed -i "s/AllowTcpForwarding.*/AllowTcpForwarding yes/" /etc/ssh/sshd_config
     sed -i "s/#ClientAliveCountMax.*/ClientAliveCountMax 3/" /etc/ssh/sshd_config
+    #sed -i "s/#PrintLastLog.*/PrintLastLog yes/" /etc/ssh/sshd_config (not supported)
 
 	# unlock root user
 	passwd -u root
