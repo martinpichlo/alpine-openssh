@@ -15,8 +15,8 @@ Docker OpenSSH for Autossh
 	    network_mode: bridge
 	    restart: always
 	    ports:
-	      - "23:22"
-              - "24:24"
+          - "23:22"
+          - "24:24"
 	    volumes:
 	      - /home/martin/ssh/authorized_keys:/root/.ssh/authorized_keys
 	    environment:
