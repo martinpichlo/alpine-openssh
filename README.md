@@ -24,4 +24,3 @@ DockerHub: https://hub.docker.com/r/zeaq/alpine-openssh
 	      - /home/martin/ssh/authorized_keys:/root/.ssh/authorized_keys
 	    environment:
 	      - LogLevel=DEBUG
-
